@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.hide-container {
+  display: none;
+}
+
+/* Hide scrollbar but keep functionality */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Text transition animations */
+.text-fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.text-fade-out {
+  opacity: 0.3;
+  transition: opacity 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Smooth scrolling behavior */
+* {
+  scroll-behavior: smooth;
+}
+
+/* Ellipsis animation */
+@keyframes ellipsis {
+  0% {
+    opacity: 0.2;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-4px);
+  }
+  100% {
+    opacity: 0.2;
+    transform: translateY(0);
+  }
+}
+
+.animate-ellipsis-1 {
+  animation: ellipsis 1.4s infinite ease-in-out;
+}
+
+.animate-ellipsis-2 {
+  animation: ellipsis 1.4s infinite ease-in-out;
+  animation-delay: 0.2s;
+}
+
+.animate-ellipsis-3 {
+  animation: ellipsis 1.4s infinite ease-in-out;
+  animation-delay: 0.4s;
+}
+
+/* Print styles */
+@media print {
+  @page {
+    margin: 2cm;
+    size: A4;
+  }
+  
+  body {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+  
+  .print\:break-before-page {
+    break-before: page;
+  }
+
+  .print\:hidden {
+    display: none !important;
+  }
+
+  .prose-invert {
+    --tw-prose-body: #000 !important;
+    --tw-prose-headings: #000 !important;
+    color: #000 !important;
+  }
+
+  .fixed.print\:block {
+    position: fixed;
+    bottom: 2cm;
+    left: 2cm;
+    right: 2cm;
+  }
+
+  pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-size: 12pt;
+    line-height: 1.5;
+  }
+
+  h3 {
+    margin-bottom: 0.5cm;
+    font-size: 18pt;
+  }
+
+  h4 {
+    margin-bottom: 1cm;
+    font-size: 16pt;
+  }
+}
